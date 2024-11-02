@@ -19,7 +19,7 @@ export default defineNuxtConfig({
             'Experienced Frontend Developer with over 4 years of expertise in JavaScript, CSS, SCSS, SASS, Tailwind CSS, Bootstrap, and Unocss. Proficient in Vue.js (Vue2/Vue3) and Nuxt, I create stunning, interactive animations and user-friendly interfaces for your web projects. Available for remote work only.',
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: 'public/me.webp' },
+        { property: 'og:image', content: 'me.webp' },
         { property: 'og:url', content: 'https://vasyl-tsiutsyk.pages.dev/' },
       ],
       link: [{ rel: 'canonical', href: 'https://vasyl-tsiutsyk.pages.dev/' }],

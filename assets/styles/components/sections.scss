@@ -1,0 +1,370 @@
+// ========== Section 01 Hero ========== //
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.hero {
+  &__wrap {
+    padding: rem(180) 0 rem(48);
+
+    @include respond-below(md) {
+      padding: rem(80) 0 rem(32);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-above(sm) {
+      --col-width: 50%;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding: 0 calc(var(--col-gap) / 2);
+  }
+
+  &__title {
+    max-width: fit-content;
+    font-size: rem(157);
+    line-height: 1.05;
+    text-align: right;
+
+    @include respond-below(lg) {
+      font-size: rem(124);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(96);
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+
+    small {
+      display: block;
+      font-family: var(--font-family-primary);
+      font-size: 14.65%;
+    }
+  }
+
+  &__subtitle {
+    font-family: var(--font-family-primary);
+    font-size: rem(38);
+    font-weight: 300;
+    line-height: 1.1;
+    text-align: right;
+    text-transform: uppercase;
+
+    @include respond-below(lg) {
+      font-size: rem(32);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(24);
+    }
+
+    @include respond-above(md) {
+      padding-right: rem(13);
+      padding-bottom: rem(28);
+    }
+  }
+}
+
+// ========== Section 02 Cards ========== //
+.section-cards {
+  &__wrap {
+    padding: rem(64) 0 rem(76);
+
+    @include respond-below(md) {
+      padding: rem(64) 0 rem(48);
+    }
+  }
+
+  &__grid {
+    --col-width: 33.33%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-below(md) {
+      --col-width: 50%;
+      --col-gap: 0.75rem;
+    }
+
+    @include respond-below(s-sm) {
+      --col-width: 100%;
+    }
+
+    > li {
+      flex: 0 0 var(--col-width);
+      max-width: var(--col-width);
+      padding: 0 calc(var(--col-gap) / 2);
+    }
+  }
+
+  &__grid-item {
+    &--01 {
+      @include respond-below(md) {
+        order: 1;
+      }
+    }
+
+    &--02 {
+      @include respond-below(md) {
+        order: 4;
+      }
+    }
+
+    &--03 {
+      @include respond-below(md) {
+        order: 3;
+      }
+    }
+
+    &--04 {
+      @include respond-below(md) {
+        order: 2;
+      }
+
+      @include respond-below(s-sm) {
+        order: 4;
+      }
+    }
+
+    &--05 {
+      @include respond-below(md) {
+        order: 4;
+      }
+    }
+
+    &--06 {
+      @include respond-below(md) {
+        order: 6;
+      }
+    }
+  }
+}
+
+// ========== Section 03 Gallery ========== //
+.section-gallery {
+  &__wrap {
+    padding: rem(84) 0 rem(80);
+
+    @include respond-below(md) {
+      padding: rem(48) 0;
+    }
+  }
+
+  &__main-img {
+    &:not(:last-child) {
+      margin-bottom: rem(34);
+
+      @include respond-below(md) {
+        margin-bottom: rem(16);
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__images-wrap {
+    &:not(:last-child) {
+      margin-bottom: rem(22);
+    }
+  }
+
+  &__images {
+    --col-width: 100%;
+    --col-gap: 0.75rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-above(sm) {
+      --col-gap: 1rem;
+      --col-width: 33.33%;
+    }
+
+    > li {
+      flex: 0 0 var(--col-width);
+      max-width: var(--col-width);
+      padding: 0 calc(var(--col-gap) / 2);
+    }
+  }
+
+  &__text {
+    font-size: rem(20);
+    text-align: center;
+
+    @include respond-below(md) {
+      font-size: rem(16);
+    }
+
+    @include respond-below(sm) {
+      font-size: rem(14);
+    }
+  }
+}
+
+// ========== Section 04 Hall ========== //
+.section-hall {
+  &__wrap {
+    padding: rem(80) 0 rem(60);
+  }
+
+  &__title {
+    font-size: rem(90);
+
+    @include respond-below(xl) {
+      font-size: rem(80);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(64);
+    }
+
+    small {
+      display: block;
+      font-family: var(--font-family-primary);
+      font-size: 30%;
+    }
+  }
+}
+
+// ========== Section 05 Create ========== //
+.section-create {
+  &__wrap {
+    padding: rem(60) 0 rem(112);
+
+    @include respond-below(md) {
+      padding: rem(60) 0;
+    }
+  }
+
+  &__images {
+    position: relative;
+    z-index: 9;
+    margin: 0 auto;
+    max-width: rem(908);
+  }
+
+  &__title {
+    margin-top: rem(-140);
+    font-family: var(--font-family-bodoni);
+    font-size: rem(280);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+
+    @include respond-below(lg) {
+      margin-top: rem(-110);
+      font-size: rem(220);
+    }
+
+    @include respond-below(md) {
+      margin-top: rem(-64);
+      font-size: rem(160);
+    }
+
+    @include respond-below(sm) {
+      margin-top: rem(-48);
+      font-size: rem(112);
+    }
+
+    @include respond-below(xs) {
+      margin-top: rem(-24);
+      font-size: rem(88);
+    }
+  }
+}
+
+// ========== Section 06 CTA ========== //
+.section-cta {
+  --section-padding-y: 6rem;
+
+  @include respond-below(md) {
+    --section-padding-y: 5rem;
+  }
+
+  @include respond-below(sm) {
+    --section-padding-y: 4rem;
+  }
+
+  &__wrap {
+    padding: var(--section-padding-y) 0;
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-above(sm) {
+      --col-width: 50%;
+      --col-gap: 3rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding: 0 calc(var(--col-gap) / 2);
+  }
+
+  &__title {
+    max-width: fit-content;
+    font-size: rem(91);
+    line-height: 1.1;
+    text-align: right;
+
+    @include respond-below(xl) {
+      font-size: rem(80);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(64);
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+
+    small {
+      display: block;
+      font-family: var(--font-family-primary);
+      font-size: 33%;
+    }
+  }
+
+  &__form {
+    @include respond-above(md) {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: rem(372);
+    }
+  }
+}

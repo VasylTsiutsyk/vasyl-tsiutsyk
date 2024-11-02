@@ -1,0 +1,44 @@
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.preloader {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-black-sinister);
+  color: var(--color-white);
+  opacity: 1;
+  transition: opacity 1s;
+
+  &._loaded {
+    opacity: 0;
+  }
+
+  &__title {
+    max-width: fit-content;
+    font-size: rem(157);
+    line-height: 1.05;
+    text-align: right;
+
+    @include respond-below(lg) {
+      font-size: rem(124);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(96);
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+
+    small {
+      display: block;
+      font-family: var(--font-family-primary);
+      font-size: 14.65%;
+    }
+  }
+}

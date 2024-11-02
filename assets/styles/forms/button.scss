@@ -1,0 +1,58 @@
+// ========== BUTTONS ========== //
+
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  vertical-align: top;
+  overflow: hidden;
+  outline: none;
+  border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  min-height: var(--button-height);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  background: none;
+  background-color: var(--button-bg-color);
+  font-size: var(--button-font-size, 1rem);
+  font-weight: var(--button-font-weight, 400);
+  line-height: var(--button-line-height, 1);
+  white-space: nowrap;
+  text-align: center;
+  color: var(--button-text-color);
+  transition:
+    border-color var(--transition-duration-primary),
+    background-color var(--transition-duration-primary),
+    box-shadow var(--transition-duration-primary),
+    color var(--transition-duration-primary);
+
+  &:disabled,
+  &._disabled {
+    opacity: 0.8;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:not(:disabled, ._disabled) {
+    @include hover {
+      border-color: var(--color-white);
+      background-color: var(--color-white);
+      color: var(--color-black-sinister);
+    }
+
+    &:focus {
+      border-color: var(--color-white);
+      background-color: var(--color-white);
+      color: var(--color-black-sinister);
+    }
+
+    &:active {
+      border-color: var(--color-white);
+      background-color: var(--color-white);
+      color: var(--color-black-sinister);
+    }
+  }
+}

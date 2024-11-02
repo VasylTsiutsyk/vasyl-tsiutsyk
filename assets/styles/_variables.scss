@@ -1,0 +1,120 @@
+// ===== HTML general ===== //
+$browser-context: 16;
+
+:root {
+  /* BASE (in px) */
+  --base-font-size: 16px;
+
+  /* Container Settings */
+  --content-width: 67.5rem; /* 1080px */
+  --content-width-xs: 50rem; /* 800px */
+  --content-width-sm: 61.25rem; /* 980px */
+  --content-width-lg: 98.75rem; /* 1580px */
+  --container-padding: 1.5rem;
+  --container: calc(var(--content-width) + 2 * var(--container-padding));
+  --container-xs: calc(var(--content-width-xs) + 2 * var(--container-padding));
+  --container-sm: calc(var(--content-width-sm) + 2 * var(--container-padding));
+  --container-lg: calc(var(--content-width-lg) + 2 * var(--container-padding));
+
+  /* Fonts */
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-family-arial: 'Arial', 'Helvetica', sans-serif;
+  --font-family-avant-garde: 'ITC Avant Garde Gothic Std', sans-serif;
+  --font-family-anton: 'Anton', sans-serif;
+  --font-family-bodoni: 'Bodoni Moda SC', serif;
+  --font-family-source-sans-pro: 'Source Sans Pro', sans-serif;
+  --font-family-primary: var(--font-family-avant-garde);
+  --font-family-secondary: var(--font-family-arial);
+  --font-icons: 'icomoon';
+
+  // Fonts Body
+  --body-font-family: var(--font-family-primary);
+  --body-font-size: 1rem;
+  --body-font-weight: 300;
+  --body-line-height: 1.42;
+
+  // Fonts Display (Heading)
+  --display-font-family: var(--font-family-anton);
+  --display-font-weight: 400;
+  --display-line-height: 1.1;
+
+  /* Colors */
+  --color-black: #000;
+  --color-black-500: #00000080;
+  --color-black-sinister: #11120d;
+  --color-white: #fff;
+  --color-white-whitest: #f8f7f5;
+  --color-gray: #c8c8c8;
+  --color-gray-blur: #f7f6f433;
+
+  /* State Colors */
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  --color-info: #17a2b8;
+
+  /* Primary / Secondary */
+  --color-primary: var(--color-white-whitest);
+
+  /* Transitions */
+  --transition-duration-primary: 0.35s;
+  --transition-duration-short: 0.25s;
+  --transition-duration-long: 0.5s;
+  --transition-primary: all var(--transition-duration-primary) ease;
+
+  /* Border Radius */
+  --border-radius-4: 0.25rem;
+  --border-radius-8: 0.5rem;
+  --border-radius-12: 0.75rem;
+  --border-radius-16: 1rem;
+  --border-radius-20: 1.25rem;
+  --border-radius-24: 1.5rem;
+  --border-radius-32: 2rem;
+  --border-radius-36: 2.25rem;
+
+  // Scrollbar
+  --scrollbar-width: 0.5rem;
+  --scrollbar-height: 0.5rem;
+
+  // Button
+  --button-border-width: 1px;
+  --button-border-style: solid;
+  --button-border-color: var(--color-primary);
+  --button-border-radius: 3.75rem;
+  --button-height: 3.75rem;
+  --button-padding-x: 1.25rem;
+  --button-padding-y: 0.5rem;
+  --button-font-size: 1.5625rem;
+  --button-font-weight: 400;
+  --button-line-height: 1;
+  --button-bg-color: transparent;
+  --button-text-color: var(--color-white);
+
+  // Input
+  --input-border-width: 1px;
+  --input-border-style: solid;
+  --input-border-color: var(--color-white);
+  --input-border-radius: 1.875rem;
+  --input-height: 3rem;
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.5rem;
+  --input-font-size: 1.25rem;
+  --input-font-weight: 400;
+  --input-line-height: 1;
+  --input-bg-color: transparent;
+  --input-text-color: var(--color-white);
+
+  // Select
+  --select-border-width: 1px;
+  --select-border-style: solid;
+  --select-border-color: var(--color-black);
+  --select-border-radius: 0.25rem;
+  --select-height: 3rem;
+  --select-padding-x: 1rem;
+  --select-padding-y: 0.5rem;
+  --select-font-size: 1rem;
+  --select-font-weight: 400;
+  --select-line-height: 1;
+  --select-bg-color: var(--color-white);
+  --select-text-color: var(--color-black);
+}

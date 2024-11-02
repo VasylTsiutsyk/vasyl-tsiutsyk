@@ -1,0 +1,10 @@
+@use 'base/mixins' as *;
+
+// ITC Avant Garde Gothic Std
+@include font('ITC Avant Garde Gothic Std', 'ITCAvantGardeStd-XLt', '300', 'normal');
+
+// Source Sans Pro
+@include font('Source Sans Pro', 'SourceSansPro-Regular', '400', 'normal');
+
+// Anton
+@include font('Anton', 'Anton-Regular', '400', 'normal');

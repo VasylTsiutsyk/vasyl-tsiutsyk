@@ -1,0 +1,308 @@
+/* stylelint-disable scss/selector-no-redundant-nesting-selector */
+/* stylelint-disable selector-no-vendor-prefix */
+@use 'sass:math';
+@use 'sass:map';
+@use 'breakpoints' as *;
+
+/* MEDIA QUERIES
+------------------------- */
+@mixin respond-below($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-above($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+/* Font
+------------------------- */
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    src:
+      url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-family: $font_name;
+    font-weight: #{$weight};
+    font-style: #{$style};
+    font-display: swap;
+  }
+}
+
+/* DISABLED MOB HOVER
+------------------------- */
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/* ADAPTIVE VALUE
+------------------------- */
+$max-width: 0; // Ширина полотна (в случае, если контент не имеет ограничений)
+$max-width-container: var(--container); // Content max width
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if $type == 1 {
+    // If less than container
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width-container - 320}));
+    }
+  } @else if $type == 2 {
+    // If more then container
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+    }
+  } @else {
+    // Always
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+  }
+}
+
+/*
+// Mixin:
+@include adaptive-value("Property", start value, min value, type of adapt);
+// Example:
+@include adaptive-value("padding", 50, 20, 0);
+*/
+
+/* Line Height
+------------------------- */
+@mixin line-height($height: 16, $base: 16) {
+  line-height: ($height / $base);
+}
+
+/* Border Radius
+------------------------- */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+/* Opacity
+------------------------- */
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity-ie); // IE8
+}
+
+/* Aspect Ratio
+------------------------- */
+@mixin responsive-ratio($x, $y) {
+  $padding: calc($y / $x) * 100%;
+
+  padding-bottom: $padding;
+}
+
+/* Text overflow
+------------------------- */
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Text Shorten
+------------------------- */
+@mixin text-shorten($linesNum: 1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @supports (-webkit-line-clamp: $linesNum ) {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: initial;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $linesNum;
+  }
+}
+
+/* Placeholders
+------------------------- */
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+/* Scrollbars
+------------------------- */
+// @include scrollbars(0.5rem, pink, red);
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+/* Triangle
+------------------------- */
+
+@mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+  width: 0;
+  height: 0;
+
+  @include pseudo($pos: $position);
+
+  @if $round {
+    border-radius: 3px;
+  }
+
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round($size / 2.5);
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round($size / 2.5);
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if  $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+/* Fluid (Responsive) Font
+------------------------- */
+// @include fluid-font(320px, 1024px, 22px, 55px);
+
+@mixin fluid-font($min-width, $max-width, $min-font-size, $max-font-size) {
+  $unit1: math.unit($min-width);
+  $unit2: math.unit($max-width);
+  $unit3: math.unit($min-font-size);
+  $unit4: math.unit($max-font-size);
+
+  @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
+    & {
+      font-size: $min-font-size;
+      line-height: $min-font-size * 1.618;
+
+      @media screen and (min-width: $min-width) {
+        font-size:
+          calc(
+            #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+          );
+        line-height:
+          calc(
+            #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            1.618 *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+          );
+      }
+
+      @media screen and (min-width: $max-width) {
+        font-size: $max-font-size;
+        line-height: $max-font-size * 1.618;
+      }
+    }
+  }
+}
+
+/* z-index
+------------------------- */
+
+// .header {
+//   z-index: z-index('header');
+// }
+
+$z-indexes: (
+  'modal',
+  'sidebar',
+  'header'
+);
+
+@function z-index($name) {
+  @if index($z-indexes, $name) {
+    @return (9999 - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+
+    @return null;
+  }
+}
+
+// Screen Reader Only
+@mixin sr-only {
+  position: absolute;
+  clip-path: inset(50%);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}

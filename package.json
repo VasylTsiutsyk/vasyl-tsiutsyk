@@ -10,7 +10,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "heroku-postbuild": "npm run build",
-    "start": "node index.js"
+    "start": "nuxt start"
   },
   "dependencies": {
     "nuxt": "^3.13.2",
@@ -21,6 +21,6 @@
     "sass-embedded": "^1.80.6"
   },
   "engines": {
-    "node": "20.9.0"
+    "node": "20.x"
   }
 }

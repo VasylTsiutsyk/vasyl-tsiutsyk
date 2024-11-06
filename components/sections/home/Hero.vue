@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <h1 class="sr-only">Vasyl Tsiutsyk | Frontend Developer</h1>
+    <h1 class="sr-only">Vasyl Tsiutsyk | Frontend Developer | Web Development</h1>
 
     <div class="hero__container container">
       <div class="hero__wrap">

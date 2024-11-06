@@ -28,10 +28,10 @@
 
 .hero {
   &__wrap {
-    padding: rem(180) 0 rem(48);
+    padding: rem(120) 0;
 
     @include respond-below(md) {
-      padding: rem(80) 0 rem(32);
+      padding: rem(80) 0;
     }
   }
 

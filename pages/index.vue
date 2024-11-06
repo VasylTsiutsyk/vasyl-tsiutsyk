@@ -3,14 +3,26 @@
     <!-- Section 01: Hero -->
     <HeroSection />
 
-    <!-- Section Projects -->
-    <ProjectsSection v-if="projects && projects.length" :projects="projects" />
+    <CardsSection v-if="projects && projects.length" :projects="projects" />
+
+    <!-- <GallerySection /> -->
+
+    <!-- <HallSection /> -->
+
+    <!-- <CreateSection /> -->
+
+    <!-- <CtaSection /> -->
   </main>
 </template>
 
 <script setup>
 import HeroSection from '~/components/sections/home/Hero.vue';
-import ProjectsSection from '~/components/sections/home/Projects.vue';
+import CardsSection from '~/components/sections/home/Cards.vue';
+import GallerySection from '~/components/sections/home/Gallery.vue';
+import HallSection from '~/components/sections/home/Hall.vue';
+import CreateSection from '~/components/sections/home/Create.vue';
+import CtaSection from '~/components/sections/home/Cta.vue';
+
 import { fetchSquidexData } from '~/services/squidex.js';
 
 const { data: projects } = await useAsyncData('projects', () => fetchSquidexData('projects'));

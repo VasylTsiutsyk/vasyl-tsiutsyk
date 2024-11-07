@@ -5,27 +5,27 @@
 </template>
 
 <script setup>
-import { useMobileDetection } from 'vue3-mobile-detection';
+// import { useMobileDetection } from 'vue3-mobile-detection';
 
 const layout = 'default';
 
-const { isMobile } = useMobileDetection();
-const isMobileRef = computed(() => isMobile());
+// const { isMobile } = useMobileDetection();
+// const isMobileRef = computed(() => isMobile());
 
-const updateBodyClass = () => {
-  const body = document.body;
-  if (!body) return;
+// const updateBodyClass = () => {
+//   const body = document.body;
+//   if (!body) return;
 
-  if (isMobileRef.value) {
-    body.classList.remove('_pc');
-    body.classList.add('_mobile');
-  } else {
-    body.classList.remove('_mobile');
-    body.classList.add('_pc');
-  }
-};
+//   if (isMobileRef.value) {
+//     body.classList.remove('_pc');
+//     body.classList.add('_mobile');
+//   } else {
+//     body.classList.remove('_mobile');
+//     body.classList.add('_pc');
+//   }
+// };
 
-onMounted(() => {
-  updateBodyClass();
-});
+// onMounted(() => {
+//   updateBodyClass();
+// });
 </script>

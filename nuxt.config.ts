@@ -1,9 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2024-11-07',
   devtools: { enabled: false },
   css: ['~/assets/styles/index.scss'],
-
   app: {
     head: {
       title: 'Vasyl Tsiutsyk | Frontend Developer',

@@ -48,8 +48,5 @@ export default defineNuxtConfig({
     },
   },
 
-  plugins: ['~/plugins/lenis.client.js'],
-  device: {
-    refreshOnResize: true,
-  },
+  // plugins: ['~/plugins/lenis.client.js'],
 });

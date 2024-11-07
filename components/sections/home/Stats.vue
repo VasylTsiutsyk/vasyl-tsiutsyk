@@ -17,15 +17,15 @@ import StatsCard from '~/components/general/StatsCard.vue';
 
 const statsData = [
   {
-    value: '4+',
+    value: 4,
     label: 'years of experience',
   },
   {
-    value: '100+',
+    value: 100,
     label: 'projects completed',
   },
   {
-    value: '40+',
+    value: 40,
     label: 'satisfied clients',
   },
 ];

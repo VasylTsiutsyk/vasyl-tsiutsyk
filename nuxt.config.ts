@@ -47,6 +47,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  // plugins: ['~/plugins/lenis.client.js'],
 });

@@ -22,3 +22,45 @@ const props = defineProps({
   },
 });
 </script>
+
+<style lang="scss">
+@use 'assets/styles/base/functions' as *;
+@use 'assets/styles/base/mixins' as *;
+
+.section-cards {
+  --section-padding-y: 5rem;
+
+  @include respond-below(md) {
+    --section-padding-y: 3rem;
+  }
+
+  &__wrap {
+    padding: var(--section-padding-y) 0;
+  }
+
+  &__grid {
+    --col-width: 33.33%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-below(md) {
+      --col-width: 50%;
+      --col-gap: 0.75rem;
+    }
+
+    @include respond-below(s-sm) {
+      --col-width: 100%;
+    }
+
+    > li {
+      flex: 0 0 var(--col-width);
+      max-width: var(--col-width);
+      padding: 0 calc(var(--col-gap) / 2);
+    }
+  }
+}
+</style>

@@ -18,3 +18,8 @@ const props = defineProps({
   },
 });
 </script>
+
+<style lang="scss">
+@use 'assets/styles/base/functions' as *;
+@use 'assets/styles/base/mixins' as *;
+</style>

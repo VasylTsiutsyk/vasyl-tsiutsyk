@@ -26,6 +26,7 @@ $browser-context: 16;
   --font-family-primary: var(--font-family-avant-garde);
   --font-family-secondary: var(--font-family-arial);
   --font-icons: 'icomoon';
+  --font-family-display: var(--font-family-anton);
 
   // Fonts Body
   --body-font-family: var(--font-family-primary);
@@ -34,7 +35,7 @@ $browser-context: 16;
   --body-line-height: 1.42;
 
   // Fonts Display (Heading)
-  --display-font-family: var(--font-family-anton);
+  --display-font-family: var(--font-family-display);
   --display-font-weight: 400;
   --display-line-height: 1.1;
 

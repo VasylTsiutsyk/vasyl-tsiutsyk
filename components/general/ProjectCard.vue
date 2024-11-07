@@ -41,6 +41,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+@use 'assets/styles/base/functions' as *;
+@use 'assets/styles/base/mixins' as *;
+
 .project-card {
   position: relative;
   display: block;
@@ -49,12 +52,16 @@ onMounted(() => {
 
   &._clickable {
     cursor: pointer;
+  }
 
-    &:hover {
-      .project-card__overlay {
-        visibility: visible;
-        opacity: 1;
-      }
+  &:hover {
+    .project-card__img {
+      filter: none;
+    }
+
+    .project-card__overlay {
+      visibility: visible;
+      opacity: 1;
     }
   }
 
@@ -66,6 +73,9 @@ onMounted(() => {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(80%);
+    transition: filter var(--transition-duration-primary);
   }
 
   &__overlay {

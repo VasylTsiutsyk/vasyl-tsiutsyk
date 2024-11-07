@@ -10,14 +10,12 @@ body {
   line-height: var(--body-line-height);
   color: var(--color-white);
 
-  &._pc {
-    &:has(.preloader) {
-      padding-right: var(--scrollbar-width);
-    }
-  }
-
   &:has(.preloader) {
     overflow: hidden;
+
+    @include respond-above(md) {
+      padding-right: var(--scrollbar-width);
+    }
   }
 }
 

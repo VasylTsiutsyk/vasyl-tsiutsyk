@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <!-- <AppPreloader /> -->
+    <AppPreloader />
 
     <slot />
 
@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-// import AppPreloader from '~/components/general/Preloader.vue';
+import AppPreloader from '~/components/general/Preloader.vue';
 import AppFooter from '~/components/partials/Footer.vue';
 </script>

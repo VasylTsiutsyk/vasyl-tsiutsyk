@@ -1,17 +1,16 @@
 <template>
   <div class="stats-card">
-    <div class="stats-card__value" :aria-label="`Over ${value} ${label}`">{{ displayedValue }}+</div>
+    <div class="stats-card__value" :aria-label="`Over ${value} ${label}`">{{ value }}+</div>
 
     <div class="stats-card__label">{{ label }}</div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   value: {
@@ -24,30 +23,30 @@ const props = defineProps({
   },
 });
 
-const displayedValue = ref(0);
+// const displayedValue = ref(0);
 
-onMounted(() => {
-  const numericValue = parseInt(props.value, 10);
+// onMounted(() => {
+//   const numericValue = parseInt(props.value, 10);
 
-  ScrollTrigger.create({
-    trigger: '.stats-card',
-    start: 'top 70%',
-    onEnter: () => {
-      gsap.to(displayedValue, {
-        duration: 2,
-        value: numericValue,
-        roundProps: 'value',
-        onUpdate: () => {
-          displayedValue.value = Math.floor(displayedValue.value);
-        },
-      });
-    },
-  });
-});
+//   ScrollTrigger.create({
+//     trigger: '.stats-card',
+//     start: 'top 70%',
+//     onEnter: () => {
+//       gsap.to(displayedValue, {
+//         duration: 2,
+//         value: numericValue,
+//         roundProps: 'value',
+//         onUpdate: () => {
+//           displayedValue.value = Math.floor(displayedValue.value);
+//         },
+//       });
+//     },
+//   });
+// });
 
-onBeforeUnmount(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-});
+// onBeforeUnmount(() => {
+//   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+// });
 </script>
 
 <style lang="scss">

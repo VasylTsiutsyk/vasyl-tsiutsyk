@@ -34,10 +34,6 @@ function navigateToProject() {
     }
   }
 }
-
-onMounted(() => {
-  console.log(props.project);
-});
 </script>
 
 <style lang="scss">

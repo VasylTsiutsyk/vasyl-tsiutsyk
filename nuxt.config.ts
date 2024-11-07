@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
   css: ['~/assets/styles/index.scss'],
+
   app: {
     head: {
       title: 'Vasyl Tsiutsyk | Frontend Developer',
@@ -45,5 +46,10 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+
+  plugins: ['~/plugins/lenis.client.js'],
+  device: {
+    refreshOnResize: true,
   },
 });

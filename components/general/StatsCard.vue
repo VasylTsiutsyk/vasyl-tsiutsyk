@@ -65,6 +65,14 @@ onBeforeUnmount(() => {
     font-weight: 400;
     line-height: 1;
 
+    @include respond-below(md) {
+      font-size: rem(80);
+    }
+
+    @include respond-below(sm) {
+      font-size: rem(64);
+    }
+
     &:not(:last-child) {
       margin-bottom: rem(16);
     }
@@ -74,6 +82,10 @@ onBeforeUnmount(() => {
     font-size: rem(16);
     font-weight: var(--body-font-weight);
     line-height: var(--body-line-height);
+
+    @include respond-below(md) {
+      font-size: rem(14);
+    }
   }
 }
 </style>

@@ -14,7 +14,13 @@
           </div>
 
           <div class="hero__col">
-            <h3 class="hero__subtitle" data-aos="fade-left" data-aos-delay="1200">Enjoy what you do</h3>
+            <!-- <h3 class="hero__subtitle" data-aos="fade-left" data-aos-delay="1200">Enjoy what you do</h3> -->
+
+            <blockquote class="hero__quote hero-quote">
+              <p class="hero-quote__body">"The supreme art of coding is to subdue bugs without crying."</p>
+
+              <div class="hero-quote__author">Sun Tzu</div>
+            </blockquote>
           </div>
         </div>
       </div>
@@ -27,12 +33,14 @@
 @use 'assets/styles/base/mixins' as *;
 
 .hero {
-  &__wrap {
-    padding: rem(120) 0;
+  --section-padding-y: 10rem;
 
-    @include respond-below(md) {
-      padding: rem(80) 0;
-    }
+  @include respond-below(md) {
+    --section-padding-y: 5rem;
+  }
+
+  &__wrap {
+    padding: var(--section-padding-y) 0;
   }
 
   &__row {
@@ -41,7 +49,7 @@
 
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     gap: var(--col-gap) 0;
     margin: 0 calc(var(--col-gap) / 2 * -1);
 
@@ -68,6 +76,10 @@
 
     @include respond-below(md) {
       font-size: rem(96);
+    }
+
+    @include respond-below(xs) {
+      font-size: rem(80);
     }
 
     span {
@@ -100,6 +112,49 @@
     @include respond-above(md) {
       padding-right: rem(13);
       padding-bottom: rem(28);
+    }
+  }
+
+  &__quote {
+    margin-left: auto;
+    max-width: rem(420);
+
+    @include respond-below(md) {
+      max-width: rem(320);
+    }
+  }
+}
+
+.hero-quote {
+  display: block;
+  text-align: right;
+  font-size: rem(24);
+
+  @include respond-below(md) {
+    font-size: rem(18);
+  }
+
+  @include respond-below(xs) {
+    font-size: rem(16);
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__author {
+    margin-left: auto;
+    max-width: fit-content;
+    font-size: rem(20);
+
+    @include respond-below(md) {
+      font-size: rem(16);
+    }
+
+    @include respond-below(xs) {
+      font-size: rem(14);
     }
   }
 }

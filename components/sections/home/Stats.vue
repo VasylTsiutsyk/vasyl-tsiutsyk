@@ -38,12 +38,16 @@ const statsData = [
 .section-stats {
   --section-padding-y: 5rem;
 
+  @include respond-below(md) {
+    --section-padding-y: 4rem;
+  }
+
   &__wrap {
     padding: var(--section-padding-y) 0;
   }
 
   &__row {
-    --col-width: 100%;
+    --col-width: 50%;
     --col-gap: 2rem;
 
     display: flex;
@@ -53,10 +57,6 @@ const statsData = [
     margin: 0 calc(var(--col-gap) / 2 * -1);
 
     @include respond-above(sm) {
-      --col-width: 50%;
-    }
-
-    @include respond-above(md) {
       --col-width: 33.33%;
     }
   }

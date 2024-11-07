@@ -15,16 +15,14 @@
 @use 'assets/styles/base/mixins' as *;
 
 .footer {
+  --footer-padding-y: 1.5rem;
+
   overflow: hidden;
   border-top: rem(1) solid var(--color-gray-blur);
   font-family: var(--font-family-source-sans-pro);
 
   &__wrap {
-    padding: rem(40) 0 rem(24);
-
-    @include respond-below(md) {
-      padding: rem(24) 0 rem(40);
-    }
+    padding: var(--footer-padding-y) 0;
   }
 
   &__row {

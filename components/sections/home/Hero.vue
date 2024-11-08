@@ -36,7 +36,7 @@
   --section-padding-y: 10rem;
 
   @include respond-below(md) {
-    --section-padding-y: 5rem;
+    --section-padding-y: 12rem;
   }
 
   &__wrap {
@@ -122,6 +122,10 @@
     @include respond-below(md) {
       max-width: rem(320);
     }
+
+    @include respond-below(xs) {
+      max-width: rem(280);
+    }
   }
 }
 
@@ -141,6 +145,10 @@
   &__body {
     &:not(:last-child) {
       margin-bottom: rem(16);
+
+      @include respond-below(md) {
+        margin-bottom: rem(12);
+      }
     }
   }
 

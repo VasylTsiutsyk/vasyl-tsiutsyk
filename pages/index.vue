@@ -7,15 +7,27 @@
     <StatsSection />
 
     <!-- Section 03: Projects -->
-    <CardsSection v-if="projects && projects.length" :projects="projects" />
+    <CardsSection v-if="projects && projects.length" :title="'Projects'" :projects="projects" />
 
-    <!-- <GallerySection /> -->
+    <!-- Section 04: TailwindCSS Projects -->
+    <CardsSection
+      v-if="tailwindProjects && tailwindProjects.length"
+      :title="'TailwindCSS'"
+      :projects="tailwindProjects"
+    />
 
-    <!-- <HallSection /> -->
+    <!-- Section 05: Online Stores Projects -->
+    <CardsSection
+      v-if="onlineStoresProjects && onlineStoresProjects.length"
+      :title="'Online Stores'"
+      :projects="onlineStoresProjects"
+    />
 
-    <!-- <CreateSection /> -->
+    <!-- Section 06: Landings Projects -->
+    <CardsSection v-if="landingsProjects && landingsProjects.length" :title="'Landings'" :projects="landingsProjects" />
 
-    <!-- <CtaSection /> -->
+    <!-- Section CTA -->
+    <CtaSection />
   </main>
 </template>
 
@@ -26,9 +38,21 @@ import CardsSection from '~/components/sections/home/Cards.vue';
 // import GallerySection from '~/components/sections/home/Gallery.vue';
 // import HallSection from '~/components/sections/home/Hall.vue';
 // import CreateSection from '~/components/sections/home/Create.vue';
-// import CtaSection from '~/components/sections/home/Cta.vue';
+import CtaSection from '~/components/sections/home/Cta.vue';
 
 import { fetchSquidexData } from '~/services/squidex.js';
 
 const { data: projects } = await useAsyncData('projects', () => fetchSquidexData('projects'));
+
+const tailwindProjects = computed(() => {
+  return projects.value.filter((p) => p.data.type.includes('tailwindcss')) || [];
+});
+
+const onlineStoresProjects = computed(() => {
+  return projects.value.filter((p) => p.data.type.includes('store')) || [];
+});
+
+const landingsProjects = computed(() => {
+  return projects.value.filter((p) => p.data.type.includes('landing')) || [];
+});
 </script>

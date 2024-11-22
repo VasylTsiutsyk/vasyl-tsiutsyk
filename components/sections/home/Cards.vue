@@ -2,6 +2,10 @@
   <section class="section-cards">
     <div class="section-cards__container container">
       <div class="section-cards__wrap">
+        <div v-if="title" class="section-cards__header">
+          <h2 class="section-cards__title">{{ title }}</h2>
+        </div>
+
         <ul class="section-cards__grid">
           <li v-for="project in projects" :key="project.id" class="section-cards__grid-item">
             <ProjectCard :project="project" />
@@ -16,6 +20,10 @@
 import ProjectCard from '~/components/general/ProjectCard.vue';
 
 const props = defineProps({
+  title: {
+    type: String,
+    default: '',
+  },
   projects: {
     type: Array,
     required: true,
@@ -36,6 +44,12 @@ const props = defineProps({
 
   &__wrap {
     padding: var(--section-padding-y) 0;
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: rem(32);
+    }
   }
 
   &__grid {

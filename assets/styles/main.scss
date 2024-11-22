@@ -270,3 +270,47 @@ h6,
     --container-padding: 1.25rem;
   }
 }
+
+// SOC
+.soc {
+  --soc-icon-size: 3rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(8) rem(12);
+
+  > li {
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: rem(1) solid var(--color-white);
+      border-radius: var(--soc-icon-size);
+      width: var(--soc-icon-size);
+      height: var(--soc-icon-size);
+      font-size: calc(var(--soc-icon-size) * 0.5);
+      transition:
+        background-color var(--transition-duration-primary),
+        color var(--transition-duration-primary);
+
+      @include hover {
+        border-color: var(--color-white);
+        background-color: var(--color-white);
+        color: var(--color-black-sinister);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-white);
+        background-color: var(--color-white);
+        color: var(--color-black-sinister);
+      }
+
+      &:active {
+        border-color: var(--color-white);
+        background-color: var(--color-white);
+        color: var(--color-black-sinister);
+      }
+    }
+  }
+}

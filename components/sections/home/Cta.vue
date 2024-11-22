@@ -12,42 +12,128 @@
           </div>
 
           <div class="section-cta__col">
-            <form action="send-email.php" method="post" class="section-cta__form cta-form">
-              <div class="cta-form__row">
-                <div class="cta-form__col">
-                  <div class="cta-form__group">
-                    <div class="cta-form__input input">
-                      <input type="text" name="name" id="nameControl" placeholder="name" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cta-form__col">
-                  <div class="cta-form__group">
-                    <div class="cta-form__input input">
-                      <input type="tel" name="phone" id="phoneControl" placeholder="phone" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cta-form__col cta-form__col--full">
-                  <div class="cta-form__group">
-                    <div class="cta-form__input input">
-                      <input type="email" name="email" id="emailControl" placeholder="email" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cta-form__col cta-form__col--full">
-                  <div class="cta-form__group">
-                    <button type="submit" class="cta-form__btn btn">Send</button>
-                  </div>
-                </div>
-              </div>
-            </form>
+            <ul class="section-cta__soc soc">
+              <li v-for="link in socLinks" :key="link.id">
+                <a :href="link.ref" target="_blank" rel="noopener noreferrer">
+                  <i class="fab" :class="link.icon"></i>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const socLinks = [
+  {
+    id: 'telegram',
+    ref: 'https://telegram.me/tsiutsyk',
+    icon: 'fa-telegram',
+  },
+  {
+    id: 'skype',
+    ref: 'https://join.skype.com/invite/lMuDkyuL3xx1',
+    icon: 'fa-skype',
+  },
+  {
+    id: 'github',
+    ref: 'https://github.com/VasylTsiutsyk',
+    icon: 'fa-github',
+  },
+  {
+    id: 'linkedin',
+    ref: 'https://www.linkedin.com/in/vasyl-tsiutsyk-85147317b/',
+    icon: 'fa-linkedin',
+  },
+  {
+    id: 'instagram',
+    ref: 'https://www.instagram.com/v_tsiutsyk/',
+    icon: 'fa-instagram',
+  },
+];
+</script>
+
+<style lang="scss">
+@use 'assets/styles/base/functions' as *;
+@use 'assets/styles/base/mixins' as *;
+
+.section-cta {
+  --section-padding-y: 6rem;
+
+  @include respond-below(md) {
+    --section-padding-y: 5rem;
+  }
+
+  @include respond-below(sm) {
+    --section-padding-y: 4rem;
+  }
+
+  &__wrap {
+    padding: var(--section-padding-y) 0;
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--col-gap) 0;
+    margin: 0 calc(var(--col-gap) / 2 * -1);
+
+    @include respond-above(sm) {
+      --col-width: 50%;
+      --col-gap: 3rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding: 0 calc(var(--col-gap) / 2);
+  }
+
+  &__title {
+    max-width: fit-content;
+    font-size: rem(91);
+    line-height: 1.1;
+    text-align: right;
+
+    @include respond-below(xl) {
+      font-size: rem(80);
+    }
+
+    @include respond-below(md) {
+      font-size: rem(64);
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+
+    small {
+      display: block;
+      font-family: var(--font-family-primary);
+      font-size: 33%;
+    }
+  }
+
+  &__form {
+    @include respond-above(md) {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: rem(372);
+    }
+  }
+
+  &__soc {
+    &.soc {
+      justify-content: center;
+    }
+  }
+}
+</style>

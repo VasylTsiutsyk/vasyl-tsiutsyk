@@ -26,6 +26,9 @@
     <!-- Section 06: Landings Projects -->
     <CardsSection v-if="landingsProjects && landingsProjects.length" :title="'Landings'" :projects="landingsProjects" />
 
+    <!-- Section 07: Betting Projects -->
+    <CardsSection v-if="bettingProjects && bettingProjects.length" :title="'Betting'" :projects="bettingProjects" />
+
     <!-- Section CTA -->
     <CtaSection />
   </main>
@@ -54,5 +57,9 @@ const onlineStoresProjects = computed(() => {
 
 const landingsProjects = computed(() => {
   return projects.value.filter((p) => p.data.type.includes('landing')) || [];
+});
+
+const bettingProjects = computed(() => {
+  return projects.value.filter((p) => p.data.type.includes('betting')) || [];
 });
 </script>

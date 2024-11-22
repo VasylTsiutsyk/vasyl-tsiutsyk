@@ -36,7 +36,7 @@ const props = defineProps({
 @use 'assets/styles/base/mixins' as *;
 
 .section-cards {
-  --section-padding-y: 5rem;
+  --section-padding-y: 4rem;
 
   @include respond-below(md) {
     --section-padding-y: 3rem;

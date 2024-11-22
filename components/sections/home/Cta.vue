@@ -7,7 +7,7 @@
             <h2 class="section-cta__title">
               <span data-aos="fade-right">GET IN TOUCH</span>
 
-              <small data-aos="fade-right" data-aos-delay="200">with us</small>
+              <small data-aos="fade-right" data-aos-delay="200">with me</small>
             </h2>
           </div>
 

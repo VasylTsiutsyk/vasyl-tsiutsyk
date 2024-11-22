@@ -49,6 +49,10 @@ const props = defineProps({
   &__header {
     &:not(:last-child) {
       margin-bottom: rem(32);
+
+      @include respond-below(md) {
+        margin-bottom: rem(24);
+      }
     }
   }
 

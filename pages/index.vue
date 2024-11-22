@@ -1,38 +1,47 @@
 <template>
   <main>
-    <!-- Section 01: Hero -->
+    <!-- Section: Hero -->
     <HeroSection />
 
-    <!-- Section 02: Statistics -->
+    <!-- Section: Statistics -->
     <StatsSection />
 
-    <!-- Section 03: Projects -->
+    <!-- Section: Projects -->
     <CardsSection v-if="projects && projects.length" :title="'Projects'" :projects="projects" />
 
-    <!-- Section 04: About Me -->
+    <!-- Section: About Me -->
     <AboutSection />
 
-    <!-- Section 04: TailwindCSS Projects -->
+    <!-- Section: TailwindCSS Projects -->
     <CardsSection
       v-if="tailwindProjects && tailwindProjects.length"
       :title="'TailwindCSS'"
       :projects="tailwindProjects"
     />
 
-    <!-- Section 05: Online Stores Projects -->
+    <!-- Section: Techs -->
+    <TickerSection v-if="usedTechs && usedTechs.length" :words="usedTechs" />
+
+    <!-- Section: Online Stores Projects -->
     <CardsSection
       v-if="onlineStoresProjects && onlineStoresProjects.length"
       :title="'Online Stores'"
       :projects="onlineStoresProjects"
     />
 
-    <!-- Section 06: Landings Projects -->
+    <!-- Section: Soft Skills -->
+    <TickerSection v-if="softSkills && softSkills.length" :words="softSkills" />
+
+    <!-- Section: Landings Projects -->
     <CardsSection v-if="landingsProjects && landingsProjects.length" :title="'Landings'" :projects="landingsProjects" />
 
-    <!-- Section 07: Betting Projects -->
+    <!-- Section: Work Values -->
+    <TickerSection v-if="workValues && workValues.length" :words="workValues" />
+
+    <!-- Section: Betting Projects -->
     <CardsSection v-if="bettingProjects && bettingProjects.length" :title="'Betting'" :projects="bettingProjects" />
 
-    <!-- Section CTA -->
+    <!-- Section: CTA -->
     <CtaSection />
   </main>
 </template>
@@ -44,6 +53,7 @@ import StatsSection from '~/components/sections/home/Stats.vue';
 import CardsSection from '~/components/sections/home/Cards.vue';
 import AboutSection from '~/components/sections/home/About.vue';
 import CtaSection from '~/components/sections/home/Cta.vue';
+import TickerSection from '~/components/sections/home/Ticker.vue';
 
 definePageMeta({
   layout: 'default',
@@ -66,4 +76,74 @@ const landingsProjects = computed(() => {
 const bettingProjects = computed(() => {
   return projects.value.filter((p) => p.data.type.includes('betting')) || [];
 });
+
+// Used Techs
+const usedTechs = [
+  'HTML5',
+  'CSS3',
+  'SCSS',
+  'SASS',
+  'BEM',
+  'Bootstap',
+  'TailwindCSS',
+  'JS',
+  'Vue 2/3',
+  'Nuxt 2/3',
+  'Swiper',
+  'Lenis.js',
+  'AOS',
+  'Simple Parallax',
+  'GSAP',
+  'Masonry',
+  'CursorDot',
+  'FancyBox',
+  'Chart.js',
+  'Apexcharts',
+  'SVG Animations',
+];
+
+// Soft Skills
+const softSkills = [
+  'Adaptability',
+  'Problem-solving',
+  'Teamwork',
+  'Leadership',
+  'Critical thinking',
+  'Emotional intelligence',
+  'Conflict resolution',
+  'Time management',
+  'Interpersonal skills',
+  'Work ethic',
+  'Attention to detail',
+  'Collaboration',
+  'Empathy',
+  'Decision-making',
+  'Stress management',
+  'Self-motivation',
+  'Public speaking',
+  'Networking',
+  'Open-mindedness',
+  'Accountability',
+];
+
+// Work Values
+const workValues = [
+  'Integrity',
+  'Innovation',
+  'Excellence',
+  'Collaboration',
+  'Accountability',
+  'Customer Focus',
+  'Transparency',
+  'Sustainability',
+  'Inclusivity',
+  'Continuous Learning',
+  'Work-Life Balance',
+  'Diversity',
+  'Fairness',
+  'Team Success',
+  'Leadership by Example',
+  'Commitment',
+  'Growth Mindset',
+];
 </script>

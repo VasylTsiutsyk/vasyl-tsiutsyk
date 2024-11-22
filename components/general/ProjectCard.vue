@@ -3,6 +3,8 @@
     <img :src="project.imgUrl" alt="" loading="lazy" class="project-card__img" />
 
     <div class="project-card__overlay">
+      <h3 class="project-card__title">{{ project.data.title }}</h3>
+
       <ul class="project-card__techs">
         <li v-for="technology in project.data.technologies">
           {{ technology.technology }}
@@ -86,6 +88,14 @@ function navigateToProject() {
     visibility: hidden;
     opacity: 0;
     transition: visibility var(--transition-duration-primary), opacity var(--transition-duration-primary);
+  }
+
+  &__title {
+    font-size: rem(18);
+
+    &:not(:last-child) {
+      margin-bottom: rem(12);
+    }
   }
 
   &__techs {

@@ -261,6 +261,10 @@ h6,
 .swiper-texts {
   .swiper-wrapper {
     transition-timing-function: linear;
+
+    .swiper-slide {
+      text-align: center;
+    }
   }
 }
 

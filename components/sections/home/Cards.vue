@@ -7,7 +7,7 @@
         </div>
 
         <ul class="section-cards__grid">
-          <li v-for="project in projects" :key="project.id" class="section-cards__grid-item">
+          <li v-for="project in projects" :key="project.id" data-aos="fade-in" class="section-cards__grid-item">
             <ProjectCard :project="project" />
           </li>
         </ul>

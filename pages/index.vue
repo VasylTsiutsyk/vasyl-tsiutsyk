@@ -7,7 +7,7 @@
     <StatsSection />
 
     <!-- Section: Projects -->
-    <CardsSection v-if="projects && projects.length" :title="'Projects'" :projects="projects" />
+    <CardsSection v-if="sortedProjects && sortedProjects.length" :title="'Projects'" :projects="sortedProjects" />
 
     <!-- Section: About Me -->
     <AboutSection />
@@ -60,6 +60,17 @@ definePageMeta({
 });
 
 const { data: projects } = await useAsyncData('projects', () => fetchSquidexData('projects'));
+
+const sortedProjects = computed(() => {
+  return (
+    projects.value?.sort((a, b) => {
+      const aPriority = typeof a.data.priority === 'number' ? a.data.priority : Infinity;
+      const bPriority = typeof b.data.priority === 'number' ? b.data.priority : Infinity;
+
+      return aPriority - bPriority;
+    }) || []
+  );
+});
 
 const tailwindProjects = computed(() => {
   return projects.value.filter((p) => p.data.type.includes('tailwindcss')) || [];

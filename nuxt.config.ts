@@ -11,11 +11,11 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Experienced Frontend Developer with over 4 years of expertise in JavaScript, CSS, SCSS, SASS, Tailwind CSS, Bootstrap, and Unocss. Proficient in Vue.js (Vue2/Vue3) and Nuxt, I create stunning, interactive animations and user-friendly interfaces for your web projects. Available for remote work only.',
+            'Vasyl Tsiutsyk. Experienced Frontend Developer with 4+ years of expertise in JavaScript, CSS, SCSS, SASS, TailwindCSS, Bootstrap, and Unocss. Proficient in Vue.js (Vue2/Vue3) and Nuxt, I create stunning, interactive animations and user-friendly interfaces for your web projects. Available for remote work only.',
         },
         {
           name: 'keywords',
-          content: 'portfolio, web developer, frontend developer, etc.',
+          content: 'Василь Цюцик, Цюцик Василь, portfolio, web developer, frontend developer',
         },
         {
           property: 'og:title',
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         {
           property: 'og:description',
           content:
-            'Experienced Frontend Developer with over 4 years of expertise in JavaScript, CSS, SCSS, SASS, Tailwind CSS, Bootstrap, and Unocss. Proficient in Vue.js (Vue2/Vue3) and Nuxt, I create stunning, interactive animations and user-friendly interfaces for your web projects. Available for remote work only.',
+            'Vasyl Tsiutsyk. Experienced Frontend Developer with 4+ years of expertise in JavaScript, CSS, SCSS, SASS, TailwindCSS, Bootstrap, and Unocss. Proficient in Vue.js (Vue2/Vue3) and Nuxt, I create stunning, interactive animations and user-friendly interfaces for your web projects. Available for remote work only.',
         },
         {
           property: 'og:type',
@@ -36,13 +36,23 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:url',
-          content: 'https://vasyl-tsiutsyk.pages.dev/',
+          content: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
         },
       ],
       link: [
         {
           rel: 'canonical',
-          href: 'https://vasyl-tsiutsyk.pages.dev/',
+          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'uk',
+          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'en',
+          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
         },
         {
           rel: 'stylesheet',

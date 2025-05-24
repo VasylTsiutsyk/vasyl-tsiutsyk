@@ -34,11 +34,6 @@ const socLinks = [
     icon: 'fa-telegram',
   },
   {
-    id: 'skype',
-    ref: 'https://join.skype.com/invite/lMuDkyuL3xx1',
-    icon: 'fa-skype',
-  },
-  {
     id: 'github',
     ref: 'https://github.com/VasylTsiutsyk',
     icon: 'fa-github',

@@ -26,7 +26,7 @@ jobs:
         env:
           SQUIDEX_CLIENT_ID: ${{ secrets.SQUIDEX_CLIENT_ID }}
           SQUIDEX_CLIENT_SECRET: ${{ secrets.SQUIDEX_CLIENT_SECRET }}
-          SQUIDEX_APP: ${{ secrets.SQUIDEX_APP_NAME }}
+          SQUIDEX_APP_NAME: ${{ secrets.SQUIDEX_APP_NAME }}
 
       - name: Add .nojekyll
         run: touch dist/.nojekyll

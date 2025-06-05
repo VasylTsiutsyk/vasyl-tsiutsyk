@@ -48,6 +48,7 @@
 
 <script setup>
 import { fetchSquidexData } from '~/services/squidex.js';
+
 import HeroSection from '~/components/sections/home/Hero.vue';
 import StatsSection from '~/components/sections/home/Stats.vue';
 import CardsSection from '~/components/sections/home/Cards.vue';

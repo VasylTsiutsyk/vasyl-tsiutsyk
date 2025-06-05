@@ -112,6 +112,7 @@ const usedTechs = [
   'Chart.js',
   'Apexcharts',
   'SVG Animations',
+  'Choices.js',
 ];
 
 // Soft Skills

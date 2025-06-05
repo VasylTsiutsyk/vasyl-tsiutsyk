@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main branch
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -23,6 +23,10 @@ jobs:
 
       - name: Generate static site
         run: npm run generate
+        env:
+          SQUIDEX_CLIENT_ID: ${{ secrets.SQUIDEX_CLIENT_ID }}
+          SQUIDEX_CLIENT_SECRET: ${{ secrets.SQUIDEX_CLIENT_SECRET }}
+          SQUIDEX_APP: ${{ secrets.SQUIDEX_APP }}
 
       - name: Add .nojekyll
         run: touch dist/.nojekyll

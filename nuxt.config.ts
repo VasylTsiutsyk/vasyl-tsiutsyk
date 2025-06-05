@@ -38,23 +38,23 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:url',
-          content: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+          content: 'https://vasyltsiutsyk.github.io/vasyl-tsiutsyk/',
         },
       ],
       link: [
         {
           rel: 'canonical',
-          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+          href: 'https://vasyltsiutsyk.github.io/vasyl-tsiutsyk/',
         },
         {
           rel: 'alternate',
           hreflang: 'uk',
-          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+          href: 'https://vasyltsiutsyk.github.io/vasyl-tsiutsyk/',
         },
         {
           rel: 'alternate',
           hreflang: 'en',
-          href: 'https://tsvv-portfolio-fb903feaf5f0.herokuapp.com/',
+          href: 'https://vasyltsiutsyk.github.io/vasyl-tsiutsyk/',
         },
         {
           rel: 'stylesheet',

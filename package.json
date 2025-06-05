@@ -10,7 +10,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "heroku-postbuild": "npm run build",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "deploy": "nuxt generate && touch dist/.nojekyll && gh-pages -d dist"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
@@ -23,6 +24,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sass-embedded": "^1.80.6"
   },
   "engines": {

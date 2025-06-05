@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/index.scss'],
 
   app: {
+    baseURL: '/tsvv-portfolio/',
+
     head: {
       title: 'Vasyl Tsiutsyk | Frontend Developer',
       meta: [

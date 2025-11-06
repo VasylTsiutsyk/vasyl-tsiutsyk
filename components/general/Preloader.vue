@@ -11,7 +11,7 @@ const isVisible = ref(true);
 
 const messages = [
   'Frontend Developer',
-  '4+ years',
+  '5+ years',
   'HTML5/CSS/SCSS/SASS',
   'Tailwind & Bootstrap',
   'JS/ES6+',
@@ -21,6 +21,7 @@ const messages = [
   'Swiper & Fancybox',
   'Creativity & Precision',
   'Problem Solver',
+  'Party Maker',
 ];
 
 const currentText = ref(messages[0]);
@@ -32,14 +33,14 @@ function startTextCycle() {
   interval = setInterval(() => {
     index = (index + 1) % messages.length;
     currentText.value = messages[index];
-  }, 200);
+  }, 150);
 }
 
 function hidePreloader() {
   setTimeout(() => {
     isVisible.value = false;
     clearInterval(interval);
-  }, 3000);
+  }, 1000);
 }
 
 onMounted(() => {

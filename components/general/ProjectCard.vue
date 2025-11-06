@@ -1,6 +1,14 @@
 <template>
   <article class="project-card" :class="{ _clickable: projectLink }" @click.prevent="navigateToProject">
-    <img :src="project.imgUrl" alt="" loading="lazy" class="project-card__img" />
+    <img
+      :src="project.imgUrl"
+      :alt="project.data.title"
+      width="348"
+      height="196"
+      loading="lazy"
+      decoding="async"
+      class="project-card__img"
+    />
 
     <div class="project-card__overlay">
       <h3 class="project-card__title">{{ project.data.title }}</h3>
@@ -94,13 +102,13 @@ function navigateToProject() {
     font-size: rem(18);
 
     &:not(:last-child) {
-      margin-bottom: rem(12);
+      margin-block-end: rem(12);
     }
   }
 
   &__techs {
     list-style: disc outside;
-    padding-left: 1rem;
+    padding-inline-start: 1rem;
     font-size: 0.875rem;
   }
 }

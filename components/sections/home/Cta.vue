@@ -14,7 +14,7 @@
           <div class="section-cta__col">
             <ul class="section-cta__soc soc">
               <li v-for="link in socLinks" :key="link.id">
-                <a :href="link.ref" target="_blank" rel="noopener noreferrer">
+                <a :href="link.ref" target="_blank" rel="noopener noreferrer" :aria-label="link.label">
                   <i class="fab" :class="link.icon"></i>
                 </a>
               </li>
@@ -32,21 +32,25 @@ const socLinks = [
     id: 'telegram',
     ref: 'https://telegram.me/tsiutsyk',
     icon: 'fa-telegram',
+    label: 'Go to Telegram',
   },
   {
     id: 'github',
     ref: 'https://github.com/VasylTsiutsyk',
     icon: 'fa-github',
+    label: 'Go to Github',
   },
   {
     id: 'linkedin',
     ref: 'https://www.linkedin.com/in/vasyl-tsiutsyk-85147317b/',
     icon: 'fa-linkedin',
+    label: 'Go to Linkedin Profile',
   },
   {
     id: 'instagram',
     ref: 'https://www.instagram.com/v_tsiutsyk/',
     icon: 'fa-instagram',
+    label: 'Go to Instagram',
   },
 ];
 </script>
@@ -56,18 +60,10 @@ const socLinks = [
 @use 'assets/styles/base/mixins' as *;
 
 .section-cta {
-  --section-padding-y: 6rem;
-
-  @include respond-below(md) {
-    --section-padding-y: 5rem;
-  }
-
-  @include respond-below(sm) {
-    --section-padding-y: 4rem;
-  }
+  --section-py: #{fluid(96, 64)};
 
   &__wrap {
-    padding: var(--section-padding-y) 0;
+    padding-block: var(--section-py);
   }
 
   &__row {
@@ -77,8 +73,8 @@ const socLinks = [
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--col-gap) 0;
-    margin: 0 calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+    margin-inline: calc(var(--col-gap) / 2 * -1);
 
     @include respond-above(sm) {
       --col-width: 50%;
@@ -89,22 +85,14 @@ const socLinks = [
   &__col {
     flex: 0 0 var(--col-width);
     max-width: var(--col-width);
-    padding: 0 calc(var(--col-gap) / 2);
+    padding-inline: calc(var(--col-gap) / 2);
   }
 
   &__title {
     max-width: fit-content;
-    font-size: rem(91);
+    font-size: fluid(91, 64);
     line-height: 1.1;
     text-align: right;
-
-    @include respond-below(xl) {
-      font-size: rem(80);
-    }
-
-    @include respond-below(md) {
-      font-size: rem(64);
-    }
 
     span {
       text-transform: uppercase;

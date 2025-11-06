@@ -306,3 +306,25 @@ $z-indexes: (
   white-space: nowrap;
   clip: rect(0 0 0 0);
 }
+
+// ===== Fluid Value ===== //
+@function fluid($max: 16, $min: 12) {
+  $maxViewportWidth: 1920;
+  $minViewportWidth: 320;
+
+  // maxSize ...
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  // slope ...
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}

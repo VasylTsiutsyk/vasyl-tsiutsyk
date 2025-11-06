@@ -1,9 +1,9 @@
 <template>
-  <div class="stats-card">
-    <div class="stats-card__value" :aria-label="`Over ${value} ${label}`">{{ displayedValue }}+</div>
-
+  <article class="stats-card">
     <div class="stats-card__label">{{ label }}</div>
-  </div>
+
+    <div class="stats-card__value" :aria-label="`Over ${value} ${label}`">{{ displayedValue }}+</div>
+  </article>
 </template>
 
 <script setup>
@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   value: {
-    type: String,
+    type: [String, Number],
     required: true,
   },
   label: {
@@ -54,37 +54,23 @@ onBeforeUnmount(() => {
 @use 'assets/styles/base/mixins' as *;
 
 .stats-card {
-  display: block;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: rem(16);
   padding: rem(12);
   text-align: center;
 
   &__value {
     font-family: var(--font-family-display);
-    font-size: rem(96);
+    font-size: fluid(96, 64);
     font-weight: 400;
     line-height: 1;
-
-    @include respond-below(md) {
-      font-size: rem(80);
-    }
-
-    @include respond-below(sm) {
-      font-size: rem(64);
-    }
-
-    &:not(:last-child) {
-      margin-bottom: rem(16);
-    }
   }
 
   &__label {
-    font-size: rem(16);
+    font-size: fluid(16, 14);
     font-weight: var(--body-font-weight);
     line-height: var(--body-line-height);
-
-    @include respond-below(md) {
-      font-size: rem(14);
-    }
   }
 }
 </style>

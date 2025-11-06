@@ -13,21 +13,13 @@
     <AboutSection />
 
     <!-- Section: TailwindCSS Projects -->
-    <CardsSection
-      v-if="tailwindProjects && tailwindProjects.length"
-      :title="'TailwindCSS'"
-      :projects="tailwindProjects"
-    />
+    <CardsSection v-if="tailwindProjects && tailwindProjects.length" :title="'TailwindCSS'" :projects="tailwindProjects" />
 
     <!-- Section: Techs -->
     <TickerSection v-if="usedTechs && usedTechs.length" :words="usedTechs" />
 
     <!-- Section: Online Stores Projects -->
-    <CardsSection
-      v-if="onlineStoresProjects && onlineStoresProjects.length"
-      :title="'Online Stores'"
-      :projects="onlineStoresProjects"
-    />
+    <CardsSection v-if="onlineStoresProjects && onlineStoresProjects.length" :title="'Online Stores'" :projects="onlineStoresProjects" />
 
     <!-- Section: Soft Skills -->
     <TickerSection v-if="softSkills && softSkills.length" :words="softSkills" />

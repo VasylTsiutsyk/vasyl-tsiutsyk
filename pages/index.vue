@@ -7,7 +7,7 @@
     <StatsSection />
 
     <!-- Section: Projects -->
-    <CardsSection v-if="sortedProjects && sortedProjects.length" :title="'Projects'" :projects="sortedProjects" />
+    <ProjectsSection v-if="sortedProjects && sortedProjects.length" :title="'Projects'" :projects="sortedProjects" />
 
     <!-- Section: About Me -->
     <AboutSection />
@@ -31,7 +31,7 @@
     <TickerSection v-if="workValues && workValues.length" :words="workValues" />
 
     <!-- Section: Betting Projects -->
-    <CardsSection v-if="bettingProjects && bettingProjects.length" :title="'Betting'" :projects="bettingProjects" />
+    <!-- <CardsSection v-if="bettingProjects && bettingProjects.length" :title="'Betting'" :projects="bettingProjects" /> -->
 
     <!-- Section: CTA -->
     <CtaSection />
@@ -42,6 +42,7 @@
 import { fetchSquidexData } from '~/services/squidex.js';
 
 import HeroSection from '~/components/sections/home/Hero.vue';
+import ProjectsSection from '~/components/sections/home/Projects.vue';
 import StatsSection from '~/components/sections/home/Stats.vue';
 import CardsSection from '~/components/sections/home/Cards.vue';
 import AboutSection from '~/components/sections/home/About.vue';

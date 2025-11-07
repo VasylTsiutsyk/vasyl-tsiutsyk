@@ -140,3 +140,27 @@
     }
   }
 }
+
+// ========== Section Projects (Slider) ========== //
+.section {
+  --section-py: #{fluid(64, 32)};
+
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 24);
+    }
+  }
+
+  &__slider-wrap {
+    .swiper-wrapper {
+      padding-bottom: fluid(64, 48);
+    }
+  }
+}

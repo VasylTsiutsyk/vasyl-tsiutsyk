@@ -34,10 +34,10 @@
                 <div class="about-group__description">
                   <ul>
                     <li>HTML5</li>
-                    <li>CSS3, SASS/SCSS, BEM, Bootstap 4+, TailwindCSS</li>
+                    <li>CSS3, SASS/SCSS/LESS, BEM, Bootstap, TailwindCSS</li>
                     <li>Native JS/ES6+</li>
-                    <li>Vue 2/3, Nuxt 2/3</li>
-                    <li>Gulp, Webpack, npm</li>
+                    <li>Vue 2/3, Nuxt 2/3/4</li>
+                    <li>Gulp, Webpack, Vite</li>
                     <li>Git, GitHub, GitLab</li>
                   </ul>
                 </div>
@@ -91,22 +91,22 @@
 @use 'assets/styles/base/mixins' as *;
 
 .section-about {
-  --section-padding-y: 4.5rem;
+  --section-py: 4.5rem;
 
   @include respond-below(md) {
-    --section-padding-y: 3rem;
+    --section-py: 3rem;
   }
 
   &__wrap {
-    padding: var(--section-padding-y) 0;
+    padding-block: var(--section-py);
   }
 
   &__header {
     &:not(:last-child) {
-      margin-bottom: rem(48);
+      margin-block-end: rem(48);
 
       @include respond-below(md) {
-        margin-bottom: rem(24);
+        margin-block-end: rem(24);
       }
     }
   }
@@ -118,43 +118,43 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--col-gap) 0;
-    margin: 0 calc(var(--col-gap) / 2 * -1);
+    margin-inline: calc(var(--col-gap) / 2 * -1);
 
     @include respond-above(md) {
       --col-width: 50%;
     }
 
     &:not(:last-child) {
-      margin-bottom: rem(32);
+      margin-block-end: rem(32);
 
       @include respond-below(md) {
-        margin-bottom: rem(24);
+        margin-block-end: rem(24);
       }
     }
   }
 
   &__col {
     flex: 0 0 var(--col-width);
-    max-width: var(--col-width);
-    padding: 0 calc(var(--col-gap) / 2);
+    max-inline-size: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
   }
 }
 
 .about-group {
   &__title {
     &:not(:last-child) {
-      margin-bottom: rem(16);
+      margin-block-end: rem(16);
     }
   }
 
   &__description {
     ul {
       list-style: disc outside;
-      padding-left: rem(20);
+      padding-inline-start: rem(20);
 
       > li {
         &:not(:last-child) {
-          margin-bottom: rem(8);
+          margin-block-end: rem(8);
         }
       }
     }
